@@ -1,16 +1,15 @@
 {
   "name": "pong",
+  "private": true,
   "version": "1.0.0",
-  "description": "Pong.",
-  "main": "server.js",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.19.2",
-    "socket.io": "^4.7.5"
-  },
-  "type": "module"
+  "workspaces": [
+    "client",
+    "server"
+  ]
 }
