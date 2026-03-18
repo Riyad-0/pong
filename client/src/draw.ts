@@ -1,4 +1,6 @@
 import { screenHeight, screenWidth } from "./screen";
+import { buttonSize } from "./consts";
+import { buttonsX, upButtonY, downButtonY } from "./buttonPosition.ts";
 import type { State } from "./state";
 
 interface DrawState {
@@ -32,7 +34,15 @@ function draw(
   // console.timeLog();
   // console.timeEnd();
   // console.time();
-  ctx.clearRect(0, 0, screenWidth(canvas), screenHeight(canvas));
+  const sw = screenWidth(canvas);
+  const sh = screenHeight(canvas);
+  ctx.clearRect(0, 0, sw, sh);
   ctx.fillStyle = "white";
-  ctx.fillRect(10, 20, 10, 20);
+  ctx.fillRect(buttonsX(sw), upButtonY(sh), buttonSize, buttonSize);
+  ctx.fillRect(buttonsX(sw), downButtonY(sh), buttonSize, buttonSize);
+  ctx.strokeStyle = "white";
+  ctx.beginPath();
+  ctx.moveTo(0, sw);
+  ctx.lineTo(sw, sw);
+  ctx.stroke();
 }
