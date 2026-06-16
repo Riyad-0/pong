@@ -53,6 +53,34 @@ function updateTouchState(touchState: TouchState) {
   }
 }
 
+function updateTouchState2(touchState: TouchState) {
+  const down = touchState.stillDown;
+  for (const e of touchEvents) {
+    switch (e.kind) {
+      case "down": {
+        const existing = down.find(existing => existing.identifier === e.identifier);
+        if (existing) {
+          existing.x = e.x;
+          existing.y = e.y;
+        } else {
+          down.push({
+            identifier: e.identifier,
+            x: e.x,
+            y: e.y
+          });
+        }
+        break;
+      }
+      case "up": {
+
+      }
+    }
+  }
+  for (const [identifier, position] of stillDown) {
+    
+  }
+}
+
 function init() {
   // Need passive: false for some Chrome-specific thing?
   // https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent
