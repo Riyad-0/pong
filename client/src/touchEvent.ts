@@ -77,6 +77,10 @@ export function updateTouchState(touchState: TouchState) {
   touchState.touchEvents = [];
 }
 
+export function touchPosition(touchState: TouchState): Position {
+  
+}
+
 function handleTouchDown(touchEvents: MyTouchEvent[], e: TouchEvent) {
   for (const touch of e.changedTouches) {
     touchEvents.push({
