@@ -61,6 +61,10 @@ function init() {
   setInterval(tick, dt);
 
   requestDraw(state, canvas, ctx);
+
+  // function update(time) {
+  //   requestAnimationFrame()
+  // }
 }
 
 window.addEventListener("load", init);

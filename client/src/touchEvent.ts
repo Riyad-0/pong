@@ -77,8 +77,9 @@ export function updateTouchState(touchState: TouchState) {
   touchState.touchEvents = [];
 }
 
-export function touchPosition(touchState: TouchState): Position {
-  
+export function touchPosition(stillDown: Map<Identifier, Position>): Position | null {
+  const position = stillDown.values().next().value;
+  return (position === undefined) ? null : position;
 }
 
 function handleTouchDown(touchEvents: MyTouchEvent[], e: TouchEvent) {

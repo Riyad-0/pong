@@ -2,6 +2,7 @@ import { screenHeight, screenWidth } from "./screen";
 import { buttonSize } from "./consts";
 import { buttonsX, upButtonY, downButtonY } from "./buttonPosition.ts";
 import type { State } from "./state";
+import { touchPosition } from "./touchEvent.ts";
 
 interface DrawState {
   drawAlreadyRequested: boolean
@@ -45,4 +46,10 @@ function draw(
   ctx.moveTo(0, sw);
   ctx.lineTo(sw, sw);
   ctx.stroke();
+
+  const touch = touchPosition(state.touchState.stillDown);
+  if (touch) {
+    ctx.fillStyle = "blue";
+    ctx.fillRect(touch.x, touch.y, 20, 20);
+  }
 }
